@@ -1,14 +1,13 @@
-# Pi TensorFlow Object Detection
+# Pi Object Detection
 在樹莓派上執行即時物件偵測，攝影機採用SJ4000的Webcam功能。
 
-## 架構
+# 架構
 - Raspberry Pi 3 (with 2017-11-29-raspbian-stretch)
 - Camera (PiCam or Webcam)
 - Python (3.5)
 - OpenCV (3.1)
 - TensorFlow (1.1.0)
 - TensorFlow Object Detection
-- Intel Movidius Neural Compute Stick (NCS)
 
 # 安裝
 
@@ -150,7 +149,7 @@
         -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules \
         -D BUILD_EXAMPLES=ON \
         -D ENABLE_PRECOMPILED_HEADERS=OFF ..
-        
+
     # 筆者用四線程編譯當機很多次，如果遇到一樣的問題可以嘗試改用單線程就好
     sudo make -j4
 ```
@@ -168,14 +167,16 @@
     cv2.__version__
 ```
 
-## 準備 Intel Movidius Neural Compute Stick (NCS)
+## Intel Movidius Neural Compute Stick (NCS)
+原本打算一步步完成TensorFlow、Opencv、NCS，但到最後發現NCS的用法和預期不同，所以會再另行研究。
 
+# 實驗
+1. [OpenCV 顯示Webcam即時影像](/lab/opencv-webcam.ipynb)
+2. [TensorFlow Object Detection 單張影像物件偵測](/lab/tensorflow-object-detection-image.ipynb)
+3. [OpevCV + Object Detection 持續串流物件偵測](/lab/tensorflow-object-detection-opencv-stream.ipynb)
 
-## 測試
-- OpenCV 即時影像
-- TensorFlow Object Detection 圖像測試
-- OpevCV + Object Detection
-- OpevCV + Object Detection + NCS
+# 心得
+在持續串流物件偵測的實驗中，FPS非常的低，好幾秒才能處理一張照片，所以這個架構在PI上是不實用的，期待PI + NCS能夠達到即時的物件偵測。
 
 # 參考
 - CH.Tseng: [在樹莓派上運行object-detection-api](https://chtseng.wordpress.com/2017/09/15/%E5%9C%A8%E6%A8%B9%E8%8E%93%E6%B4%BE%E4%B8%8A%E9%81%8B%E8%A1%8Cobject-detection-api/)
@@ -184,3 +185,4 @@
 - Github: [lhelontra/tensorflow-on-arm](https://github.com/lhelontra/tensorflow-on-arm)
 - Github: [tensorflow/models (Object Detection)](https://github.com/tensorflow/models/tree/master/research/object_detection)
 - Github: [opencv/Build problems on the raspberry pi 3 : make: *** [all] Error 2](https://github.com/opencv/opencv/issues/8878)
+- Movidius: [ncs-apps-on-rpi](https://movidius.github.io/blog/ncs-apps-on-rpi/)
