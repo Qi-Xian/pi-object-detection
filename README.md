@@ -1,5 +1,5 @@
 # Pi Object Detection
-在樹莓派上執行即時物件偵測，攝影機採用SJ4000的Webcam功能。
+在樹莓派上執行即時物件偵測，攝影機採用SJ4000的Webcam功能。
 
 # 架構
 - Raspberry Pi 3 (with 2017-11-29-raspbian-stretch)
@@ -11,9 +11,9 @@
 
 # 安裝
 
-## 注意事項
+## 注意事項
 
-- 用SSＨ來安裝會遇到麻煩，以下所有操作都在本機執行
+- 用SSＨ來安裝會遇到麻煩，以下所有操作都在本機執行
 
 ## 準備 TensorFlow
 
@@ -70,7 +70,7 @@
     cd ~
     git clone https://github.com/tensorflow/models.git
 
-    # 進入research目錄
+    # 進入research目錄
     cd ./models/research
 
     # 處理Google Protocol Buffer，將路徑加到PYTHONPATH
