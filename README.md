@@ -1,9 +1,11 @@
 # Pi Object Detection
-在樹莓派上執行即時物件偵測，攝影機採用SJ4000的Webcam功能。
+在樹莓派上執行即時物件偵測，採用webcam輸入影像，並於螢幕顯示結果。
 
 # 架構
+OpenCV負責讀取webcam的影像串流，將即時圖像交給TensorFlow Object Detection執行物件偵測，並藉其提供的工具把偵測結果繪製到原始圖像上，最後在OpenCV的視窗顯示。其中TensorFlow Object Detection包含了深度學習模型和已訓練好的權重，能輸入影像張量，輸出邊框和偵測結果。
+
 - Raspberry Pi 3 (with 2017-11-29-raspbian-stretch)
-- Camera (PiCam or Webcam)
+- Camera (SJ4000)
 - Python (3.5)
 - OpenCV (3.1)
 - TensorFlow (1.1.0)
